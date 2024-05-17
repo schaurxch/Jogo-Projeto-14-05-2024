@@ -7,7 +7,7 @@ public class CarregarCenaSelecaoMapa : MonoBehaviour
 {
     public void CarregarCenaSelecaoMapas()
     {
-        SceneManager.LoadScene("SelecaoMapa");
+        SceneManager.LoadScene("MenuObjetivoDoJogo");
     }
 
     public void Quit()

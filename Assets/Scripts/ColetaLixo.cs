@@ -15,7 +15,7 @@ public class ColetaLixo : MonoBehaviour
     {
         if(other.gameObject.tag == "Trash")
         {
-            cronometro.tempoRestante += 3f;
+            cronometro.remainingTime += 3f;
             lixoColetado+=5;
             pontuacaoTexto.text = "PONTOS: " + lixoColetado;
             Debug.Log(lixoColetado);

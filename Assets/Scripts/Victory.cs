@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class Victory : MonoBehaviour
 {
     public int LixoNecessario = 100;
-    //public Text VitoriaTexto;
     public ColetaLixo coletalixo;
+    public Cronometro cronometro;
     public bool fimDeJogoVitoria = false;
 
 

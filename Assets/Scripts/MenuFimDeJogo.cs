@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuFimDeJogo : MonoBehaviour
 {
@@ -13,7 +14,16 @@ public class MenuFimDeJogo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("MenuInicial");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -1,32 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
-
 public class Cronometro : MonoBehaviour
 {
-    public float tempoRestante = 60f; // Tempo inicial em segundos
-    public Text textoTempo;
-    public Victory vitoria;
+
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] public float remainingTime = 60f;
+    void Start()
+    {
+
+    }
+
 
     void Update()
     {
-        tempoRestante -= Time.deltaTime;
-        textoTempo.text = "Tempo: " + tempoRestante.ToString();
-
-        if (tempoRestante <= 0)
+        if (remainingTime > 0)
         {
-            // Verificar condição de vitória/derrota
-            if(vitoria.fimDeJogoVitoria == true)
-            {
-                Debug.Log("VOCE GANHOU");
-                //SceneManager.LoadScene("MenuFimDeJogo");
-            }
-            else
-            {
-                SceneManager.LoadScene("MenuFimDeJogo");
-            }
+            remainingTime -= Time.deltaTime;
         }
+        else if (remainingTime < 0)
+        {
+            remainingTime = 0;
+            timerText.color = Color.red;
+            SceneManager.LoadScene("MenuDerrota");
+        }
+
+        int minutes = Mathf.FloorToInt(remainingTime / 60);
+        int seconds = Mathf.FloorToInt(remainingTime % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

@@ -49,8 +49,6 @@ public class MenuPausa : MonoBehaviour
 
     public void VoltarMenuInicial()
     {
-        coletalixo.pontuacaoTexto.text = null;
-        coletalixo.lixoColetado = 0;
         SceneManager.LoadScene("MenuInicial");
     }
 }
